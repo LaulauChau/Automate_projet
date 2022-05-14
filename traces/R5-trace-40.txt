@@ -1,0 +1,76 @@
+
+
+===== LECTURE DE L'AUTOMATE =====
+
+Alphabet :  a b
+Etats initiaux :  1 3
+Etats terminaux :  2 4
+Table de transition :
+  /  | a | b 
+-----+---+---
+  0  | 0 | 0 
+ → 1 | 2 | 0 
+ ← 2 |   |   
+ → 3 | 0 | 4 
+ ← 4 |   |   
+
+
+===== DETERMINISATION ET COMPLEMENTARISATION =====
+Cet automate est déjà synchrone.
+Cet automate n'est pas déterministe car il possède 2 états initiaux.
+Cet automate est déjà synchrone.
+Cet automate est déjà completé.
+
+Alphabet :  a b
+Etats initiaux :  1,3
+Etats terminaux :  0,2 0,4
+Table de transition :
+   /   |  a  |  b  
+-------+-----+-----
+   0   |  0  |  0  
+ ← 0,2 |  0  |  0  
+ ← 0,4 |  0  |  0  
+ → 1,3 | 0,2 | 0,4 
+
+
+===== RECONNAISSANCE =====
+Entrez le mot à tester (ou suivant/s pour passer à l'étape suivante) : 
+
+===== RECONNAISSANCE LANGAGE COMPLEMENTAIRE =====
+Cet automate est déjà synchrone.
+Cet automate est déjà déterministe.
+Cet automate est déjà synchrone.
+Cet automate est déjà completé.
+
+Alphabet :  a b
+Etats initiaux :  1,3
+Etats terminaux :  0 1,3
+Table de transition :
+   /    |  a  |  b  
+--------+-----+-----
+  ← 0   |  0  |  0  
+  0,2   |  0  |  0  
+  0,4   |  0  |  0  
+ ←→ 1,3 | 0,2 | 0,4 
+
+
+===== RECONNAISSANCE =====
+Entrez le mot à tester (ou suivant/s pour passer à l'étape suivante) : 
+
+===== STANDARDISATION =====
+Cet automate est déjà standard.
+
+Alphabet :  a b
+Etats initiaux :  1,3
+Etats terminaux :  0 1,3
+Table de transition :
+   /    |  a  |  b  
+--------+-----+-----
+  ← 0   |  0  |  0  
+  0,2   |  0  |  0  
+  0,4   |  0  |  0  
+ ←→ 1,3 | 0,2 | 0,4 
+
+
+===== RECONNAISSANCE =====
+Entrez le mot à tester (ou suivant/s pour passer à l'étape suivante) : 

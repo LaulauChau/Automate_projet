@@ -1,0 +1,10 @@
+
+
+===== LECTURE DE L'AUTOMATE =====
+
+Alphabet :  a
+Etats initiaux :  0
+Etats terminaux :  0
+Table de transition :
+  /   
+------

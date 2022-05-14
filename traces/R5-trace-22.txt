@@ -1,0 +1,89 @@
+
+
+===== LECTURE DE L'AUTOMATE =====
+
+Alphabet :  a
+Etats initiaux :  1
+Etats terminaux :  0 3
+Table de transition :
+  /  |  a  
+-----+-----
+ ← 0 |  4  
+ → 1 | 2 4 
+  2  |  3  
+ ← 3 | 0 2 
+  4  | 3 5 
+  5  |  0  
+
+
+===== DETERMINISATION ET COMPLEMENTARISATION =====
+Cet automate est déjà synchrone.
+Cet automate n'est pas déterministe car il a plusieurs transitions qui partent du même état (1) avec la lettre (a).
+Cet automate est déjà synchrone.
+Cet automate est déjà completé.
+
+Alphabet :  a
+Etats initiaux :  1
+Etats terminaux :  0,2 0,2,3,4 0,2,3,4,5 0,2,3,5 3,4 3,5
+Table de transition :
+      /      |     a     
+-------------+-----------
+    ← 0,2    |    3,4    
+  ← 0,2,3,4  | 0,2,3,4,5 
+ ← 0,2,3,4,5 | 0,2,3,4,5 
+  ← 0,2,3,5  |  0,2,3,4  
+     → 1     |    2,4    
+     2,4     |    3,5    
+    ← 3,4    |  0,2,3,5  
+    ← 3,5    |    0,2    
+
+
+===== RECONNAISSANCE =====
+Entrez le mot à tester (ou suivant/s pour passer à l'étape suivante) : 
+
+===== RECONNAISSANCE LANGAGE COMPLEMENTAIRE =====
+Cet automate est déjà synchrone.
+Cet automate est déjà déterministe.
+Cet automate est déjà synchrone.
+Cet automate est déjà completé.
+
+Alphabet :  a
+Etats initiaux :  1
+Etats terminaux :  1 2,4
+Table de transition :
+     /     |     a     
+-----------+-----------
+    0,2    |    3,4    
+  0,2,3,4  | 0,2,3,4,5 
+ 0,2,3,4,5 | 0,2,3,4,5 
+  0,2,3,5  |  0,2,3,4  
+    ←→ 1   |    2,4    
+   ← 2,4   |    3,5    
+    3,4    |  0,2,3,5  
+    3,5    |    0,2    
+
+
+===== RECONNAISSANCE =====
+Entrez le mot à tester (ou suivant/s pour passer à l'étape suivante) : 
+
+===== STANDARDISATION =====
+Cet automate est déjà standard.
+
+Alphabet :  a
+Etats initiaux :  1
+Etats terminaux :  1 2,4
+Table de transition :
+     /     |     a     
+-----------+-----------
+    0,2    |    3,4    
+  0,2,3,4  | 0,2,3,4,5 
+ 0,2,3,4,5 | 0,2,3,4,5 
+  0,2,3,5  |  0,2,3,4  
+    ←→ 1   |    2,4    
+   ← 2,4   |    3,5    
+    3,4    |  0,2,3,5  
+    3,5    |    0,2    
+
+
+===== RECONNAISSANCE =====
+Entrez le mot à tester (ou suivant/s pour passer à l'étape suivante) : 

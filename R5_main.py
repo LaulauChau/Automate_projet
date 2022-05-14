@@ -1,5 +1,6 @@
 import os
 import re
+import sys
 
 
 from src.classes.R5_automate import Automate
@@ -10,6 +11,42 @@ from src.functions.R5_reconnaissance import reconnaissance
 
 
 FORMAT_FICHIER = "R5-%d.txt"
+
+
+def trace():
+    for idAutomate in range(1, 45):
+        with open(f"traces/R5-trace-{idAutomate}.txt", "w", encoding="utf-8") as f:
+            sys.stdout = f
+            print("\n\n===== LECTURE DE L'AUTOMATE =====")
+            cheminFichier = "docs/" + (FORMAT_FICHIER % idAutomate)
+            automate = Automate.readFile(cheminFichier)
+            automate.display()
+
+            print("\n\n===== DETERMINISATION ET COMPLEMENTARISATION =====")
+            automate = determinize(automate)
+            automate = completer(automate)
+            automate.display()
+
+            """
+                print("\n\n===== MINIMISATION =====")
+                """
+
+            print("\n\n===== RECONNAISSANCE =====")
+            reconnaissance(automate)
+
+            print("\n\n===== RECONNAISSANCE LANGAGE COMPLEMENTAIRE =====")
+            automate = complement(automate)
+            automate.display()
+
+            print("\n\n===== RECONNAISSANCE =====")
+            reconnaissance(automate)
+
+            print("\n\n===== STANDARDISATION =====")
+            automate = standardize(automate)
+            automate.display()
+
+            print("\n\n===== RECONNAISSANCE =====")
+            reconnaissance(automate)
 
 
 def main():
@@ -75,3 +112,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    # trace()

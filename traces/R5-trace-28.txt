@@ -1,0 +1,81 @@
+
+
+===== LECTURE DE L'AUTOMATE =====
+
+Alphabet :  a b
+Etats initiaux :  0
+Etats terminaux :  6
+Table de transition :
+  /  |  *  | a | b 
+-----+-----+---+---
+ → 0 | 1 4 |   |   
+  1  |  2  | 2 |   
+  2  |     |   | 3 
+  3  | 2 6 |   |   
+  4  |     |   | 5 
+  5  | 4 6 |   |   
+ ← 6 |     |   |   
+
+
+===== DETERMINISATION ET COMPLEMENTARISATION =====
+Cet automate est asynchrone car il a au moins une transition epsilon (0*1).
+Cet automate n'est pas déterministe car il possède 4 états initiaux.
+Cet automate est déjà synchrone.
+Cet automate est incomplet car il manque 3 transition(s).
+
+Alphabet :  a b
+Etats initiaux :  0,1,2,4
+Etats terminaux :  2,3,4,5,6 2,3,6
+Table de transition :
+      /      | a |     b     
+-------------+---+-----------
+  → 0,1,2,4  | 2 | 2,3,4,5,6 
+      2      | P |   2,3,6   
+ ← 2,3,4,5,6 | P | 2,3,4,5,6 
+   ← 2,3,6   | P |   2,3,6   
+      P      | P |     P     
+
+
+===== RECONNAISSANCE =====
+Entrez le mot à tester (ou suivant/s pour passer à l'étape suivante) : 
+
+===== RECONNAISSANCE LANGAGE COMPLEMENTAIRE =====
+Cet automate est déjà synchrone.
+Cet automate est déjà déterministe.
+Cet automate est déjà synchrone.
+Cet automate est déjà completé.
+
+Alphabet :  a b
+Etats initiaux :  0,1,2,4
+Etats terminaux :  0,1,2,4 2 P
+Table de transition :
+     /      | a |     b     
+------------+---+-----------
+ ←→ 0,1,2,4 | 2 | 2,3,4,5,6 
+    ← 2     | P |   2,3,6   
+ 2,3,4,5,6  | P | 2,3,4,5,6 
+   2,3,6    | P |   2,3,6   
+    ← P     | P |     P     
+
+
+===== RECONNAISSANCE =====
+Entrez le mot à tester (ou suivant/s pour passer à l'étape suivante) : 
+
+===== STANDARDISATION =====
+Cet automate est déjà standard.
+
+Alphabet :  a b
+Etats initiaux :  0,1,2,4
+Etats terminaux :  0,1,2,4 2 P
+Table de transition :
+     /      | a |     b     
+------------+---+-----------
+ ←→ 0,1,2,4 | 2 | 2,3,4,5,6 
+    ← 2     | P |   2,3,6   
+ 2,3,4,5,6  | P | 2,3,4,5,6 
+   2,3,6    | P |   2,3,6   
+    ← P     | P |     P     
+
+
+===== RECONNAISSANCE =====
+Entrez le mot à tester (ou suivant/s pour passer à l'étape suivante) : 

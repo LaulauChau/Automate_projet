@@ -1,0 +1,99 @@
+
+
+===== LECTURE DE L'AUTOMATE =====
+
+Alphabet :  a b c
+Etats initiaux :  0
+Etats terminaux :  12
+Table de transition :
+  /   |  *  | a | b  | c  
+------+-----+---+----+----
+ → 0  | 1 7 |   |    |    
+  1   | 2 4 |   |    |    
+  10  |  11 |   |    |    
+  11  |  12 |   |    | 11 
+ ← 12 |     |   |    |    
+  2   |     | 3 |    |    
+  3   |  5  |   |    |    
+  4   |  5  |   | 4  |    
+  5   |     |   |    | 6  
+  6   |  12 |   |    |    
+  7   | 8 9 |   |    |    
+  8   |  11 | 8 |    |    
+  9   |     |   | 10 |    
+
+
+===== DETERMINISATION ET COMPLEMENTARISATION =====
+Cet automate est asynchrone car il a au moins une transition epsilon (0*1).
+Cet automate n'est pas déterministe car il possède 10 états initiaux.
+Cet automate est déjà synchrone.
+Cet automate est incomplet car il manque 11 transition(s).
+
+Alphabet :  a b c
+Etats initiaux :  0,1,11,12,2,4,5,7,8,9
+Etats terminaux :  0,1,11,12,2,4,5,7,8,9 10,11,12,4,5 11,12 11,12,3,5,8 11,12,6 11,8 12,6
+Table de transition :
+            /             |      a      |      b       |    c    
+--------------------------+-------------+--------------+---------
+ ←→ 0,1,11,12,2,4,5,7,8,9 | 11,12,3,5,8 | 10,11,12,4,5 | 11,12,6 
+      ← 10,11,12,4,5      |      P      |     4,5      | 11,12,6 
+         ← 11,12          |      P      |      P       |  11,12  
+      ← 11,12,3,5,8       |     11,8    |      P       | 11,12,6 
+        ← 11,12,6         |      P      |      P       |  11,12  
+          ← 11,8          |     11,8    |      P       |  11,12  
+          ← 12,6          |      P      |      P       |    P    
+           4,5            |      P      |     4,5      |   12,6  
+            P             |      P      |      P       |    P    
+
+
+===== RECONNAISSANCE =====
+Entrez le mot à tester (ou suivant/s pour passer à l'étape suivante) : 
+
+===== RECONNAISSANCE LANGAGE COMPLEMENTAIRE =====
+Cet automate est déjà synchrone.
+Cet automate est déjà déterministe.
+Cet automate est déjà synchrone.
+Cet automate est déjà completé.
+
+Alphabet :  a b c
+Etats initiaux :  0,1,11,12,2,4,5,7,8,9
+Etats terminaux :  4,5 P
+Table de transition :
+            /            |      a      |      b       |    c    
+-------------------------+-------------+--------------+---------
+ → 0,1,11,12,2,4,5,7,8,9 | 11,12,3,5,8 | 10,11,12,4,5 | 11,12,6 
+       10,11,12,4,5      |      P      |     4,5      | 11,12,6 
+          11,12          |      P      |      P       |  11,12  
+       11,12,3,5,8       |     11,8    |      P       | 11,12,6 
+         11,12,6         |      P      |      P       |  11,12  
+           11,8          |     11,8    |      P       |  11,12  
+           12,6          |      P      |      P       |    P    
+          ← 4,5          |      P      |     4,5      |   12,6  
+           ← P           |      P      |      P       |    P    
+
+
+===== RECONNAISSANCE =====
+Entrez le mot à tester (ou suivant/s pour passer à l'étape suivante) : 
+
+===== STANDARDISATION =====
+Cet automate est déjà standard.
+
+Alphabet :  a b c
+Etats initiaux :  0,1,11,12,2,4,5,7,8,9
+Etats terminaux :  4,5 P
+Table de transition :
+            /            |      a      |      b       |    c    
+-------------------------+-------------+--------------+---------
+ → 0,1,11,12,2,4,5,7,8,9 | 11,12,3,5,8 | 10,11,12,4,5 | 11,12,6 
+       10,11,12,4,5      |      P      |     4,5      | 11,12,6 
+          11,12          |      P      |      P       |  11,12  
+       11,12,3,5,8       |     11,8    |      P       | 11,12,6 
+         11,12,6         |      P      |      P       |  11,12  
+           11,8          |     11,8    |      P       |  11,12  
+           12,6          |      P      |      P       |    P    
+          ← 4,5          |      P      |     4,5      |   12,6  
+           ← P           |      P      |      P       |    P    
+
+
+===== RECONNAISSANCE =====
+Entrez le mot à tester (ou suivant/s pour passer à l'étape suivante) : 
