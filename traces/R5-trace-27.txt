@@ -32,6 +32,7 @@ Table de transition :
 
 
 ===== RECONNAISSANCE =====
+Entrez le mot à tester (ou suivant/s pour passer à l'étape suivante) : s
 
 
 ===== RECONNAISSANCE LANGAGE COMPLEMENTAIRE =====
@@ -53,6 +54,7 @@ Table de transition :
 
 
 ===== RECONNAISSANCE =====
+Entrez le mot à tester (ou suivant/s pour passer à l'étape suivante) : s
 
 
 ===== STANDARDISATION =====
@@ -71,3 +73,4 @@ Table de transition :
 
 
 ===== RECONNAISSANCE =====
+Entrez le mot à tester (ou suivant/s pour passer à l'étape suivante) : s
