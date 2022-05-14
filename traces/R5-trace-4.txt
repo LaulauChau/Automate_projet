@@ -2,35 +2,35 @@
 
 ===== LECTURE DE L'AUTOMATE =====
 
-Alphabet :  a b c d
-Etats initiaux :  1
-Etats terminaux :  1
+Alphabet :  a
+Etats initiaux :  0
+Etats terminaux : 
 Table de transition :
-  /   | a | b | c | d 
-------+---+---+---+---
-  0   |   | 0 |   | 1 
- ←→ 1 | 1 |   | 0 |   
+  /  | a 
+-----+---
+ → 0 | 1 
+  1  |   
 
 
 ===== DETERMINISATION ET COMPLEMENTARISATION =====
 Cet automate est déjà synchrone.
 Cet automate est déjà déterministe.
 Cet automate est déjà synchrone.
-Cet automate est incomplet car il manque 4 transition(s).
+Cet automate est incomplet car il manque 1 transition(s).
 
-Alphabet :  a b c d
-Etats initiaux :  1
-Etats terminaux :  1
+Alphabet :  a
+Etats initiaux :  0
+Etats terminaux : 
 Table de transition :
-  /   | a | b | c | d 
-------+---+---+---+---
-  0   | P | 0 | P | 1 
- ←→ 1 | 1 | P | 0 | P 
-  P   | P | P | P | P 
+  /  | a 
+-----+---
+ → 0 | 1 
+  1  | P 
+  P  | P 
 
 
 ===== RECONNAISSANCE =====
-Entrez le mot à tester (ou suivant/s pour passer à l'étape suivante) : 
+
 
 ===== RECONNAISSANCE LANGAGE COMPLEMENTAIRE =====
 Cet automate est déjà synchrone.
@@ -38,34 +38,32 @@ Cet automate est déjà déterministe.
 Cet automate est déjà synchrone.
 Cet automate est déjà completé.
 
-Alphabet :  a b c d
-Etats initiaux :  1
-Etats terminaux :  0 P
+Alphabet :  a
+Etats initiaux :  0
+Etats terminaux :  0 1 P
 Table de transition :
-  /  | a | b | c | d 
------+---+---+---+---
- ← 0 | P | 0 | P | 1 
- → 1 | 1 | P | 0 | P 
- ← P | P | P | P | P 
+  /   | a 
+------+---
+ ←→ 0 | 1 
+ ← 1  | P 
+ ← P  | P 
 
 
 ===== RECONNAISSANCE =====
-Entrez le mot à tester (ou suivant/s pour passer à l'étape suivante) : 
+
 
 ===== STANDARDISATION =====
-Cet automate n'est pas standard car il présente au moins une transition qui revient vers l'état initial (0d1).
+Cet automate est déjà standard.
 
-Alphabet :  a b c d
-Etats initiaux :  I
-Etats terminaux :  0 P
+Alphabet :  a
+Etats initiaux :  0
+Etats terminaux :  0 1 P
 Table de transition :
-  /  | a | b | c | d 
------+---+---+---+---
- ← 0 | P | 0 | P | 1 
-  1  | 1 | P | 0 | P 
- → I | 1 | P | 0 | P 
- ← P | P | P | P | P 
+  /   | a 
+------+---
+ ←→ 0 | 1 
+ ← 1  | P 
+ ← P  | P 
 
 
 ===== RECONNAISSANCE =====
-Entrez le mot à tester (ou suivant/s pour passer à l'étape suivante) : 

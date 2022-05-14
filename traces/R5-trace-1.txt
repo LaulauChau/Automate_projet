@@ -26,7 +26,7 @@ Table de transition :
 
 
 ===== RECONNAISSANCE =====
-Entrez le mot à tester (ou suivant/s pour passer à l'étape suivante) : 
+
 
 ===== RECONNAISSANCE LANGAGE COMPLEMENTAIRE =====
 Cet automate est déjà synchrone.
@@ -45,7 +45,7 @@ Table de transition :
 
 
 ===== RECONNAISSANCE =====
-Entrez le mot à tester (ou suivant/s pour passer à l'étape suivante) : 
+
 
 ===== STANDARDISATION =====
 Cet automate est déjà standard.
@@ -61,4 +61,3 @@ Table de transition :
 
 
 ===== RECONNAISSANCE =====
-Entrez le mot à tester (ou suivant/s pour passer à l'étape suivante) : 

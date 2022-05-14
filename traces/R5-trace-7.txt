@@ -2,41 +2,34 @@
 
 ===== LECTURE DE L'AUTOMATE =====
 
-Alphabet :  a b c d
+Alphabet :  a
 Etats initiaux :  1
-Etats terminaux :  4
+Etats terminaux :  0
 Table de transition :
-  /  | a | b | c | d 
------+---+---+---+---
-  0  | 0 |   |   |   
- → 1 | 1 | 2 | 3 | 4 
-  2  | 0 | 2 | 3 | 4 
-  3  | 0 | 0 | 3 | 4 
- ← 4 | 0 | 0 | 0 | 4 
+  /  |  a  
+-----+-----
+ ← 0 |     
+ → 1 | 0 1 
 
 
 ===== DETERMINISATION ET COMPLEMENTARISATION =====
 Cet automate est déjà synchrone.
-Cet automate est déjà déterministe.
+Cet automate n'est pas déterministe car il a plusieurs transitions qui partent du même état (1) avec la lettre (a).
 Cet automate est déjà synchrone.
-Cet automate est incomplet car il manque 3 transition(s).
+Cet automate est déjà completé.
 
-Alphabet :  a b c d
+Alphabet :  a
 Etats initiaux :  1
-Etats terminaux :  4
+Etats terminaux :  0,1
 Table de transition :
-  /  | a | b | c | d 
------+---+---+---+---
-  0  | 0 | P | P | P 
- → 1 | 1 | 2 | 3 | 4 
-  2  | 0 | 2 | 3 | 4 
-  3  | 0 | 0 | 3 | 4 
- ← 4 | 0 | 0 | 0 | 4 
-  P  | P | P | P | P 
+   /   |  a  
+-------+-----
+ ← 0,1 | 0,1 
+  → 1  | 0,1 
 
 
 ===== RECONNAISSANCE =====
-Entrez le mot à tester (ou suivant/s pour passer à l'étape suivante) : 
+
 
 ===== RECONNAISSANCE LANGAGE COMPLEMENTAIRE =====
 Cet automate est déjà synchrone.
@@ -44,40 +37,30 @@ Cet automate est déjà déterministe.
 Cet automate est déjà synchrone.
 Cet automate est déjà completé.
 
-Alphabet :  a b c d
+Alphabet :  a
 Etats initiaux :  1
-Etats terminaux :  0 1 2 3 P
+Etats terminaux :  1
 Table de transition :
-  /   | a | b | c | d 
-------+---+---+---+---
- ← 0  | 0 | P | P | P 
- ←→ 1 | 1 | 2 | 3 | 4 
- ← 2  | 0 | 2 | 3 | 4 
- ← 3  | 0 | 0 | 3 | 4 
-  4   | 0 | 0 | 0 | 4 
- ← P  | P | P | P | P 
+  /   |  a  
+------+-----
+ 0,1  | 0,1 
+ ←→ 1 | 0,1 
 
 
 ===== RECONNAISSANCE =====
-Entrez le mot à tester (ou suivant/s pour passer à l'étape suivante) : 
+
 
 ===== STANDARDISATION =====
-Cet automate n'est pas standard car il présente au moins une transition qui revient vers l'état initial (1a1).
+Cet automate est déjà standard.
 
-Alphabet :  a b c d
-Etats initiaux :  I
-Etats terminaux :  0 1 2 3 P
+Alphabet :  a
+Etats initiaux :  1
+Etats terminaux :  1
 Table de transition :
-  /  | a | b | c | d 
------+---+---+---+---
- ← 0 | 0 | P | P | P 
- ← 1 | 1 | 2 | 3 | 4 
- ← 2 | 0 | 2 | 3 | 4 
- ← 3 | 0 | 0 | 3 | 4 
-  4  | 0 | 0 | 0 | 4 
- → I | 1 | 2 | 3 | 4 
- ← P | P | P | P | P 
+  /   |  a  
+------+-----
+ 0,1  | 0,1 
+ ←→ 1 | 0,1 
 
 
 ===== RECONNAISSANCE =====
-Entrez le mot à tester (ou suivant/s pour passer à l'étape suivante) : 

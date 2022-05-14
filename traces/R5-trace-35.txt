@@ -2,39 +2,47 @@
 
 ===== LECTURE DE L'AUTOMATE =====
 
-Alphabet :  a b
-Etats initiaux :  0 1
-Etats terminaux :  0 2
+Alphabet :  a b c
+Etats initiaux :  0
+Etats terminaux :  10
 Table de transition :
-  /   |  a  |  b  
-------+-----+-----
- ←→ 0 |     | 1 2 
- → 1  | 0 2 |  2  
- ← 2  |  0  |     
+  /   |  *  | a | b 
+------+-----+---+---
+ → 0  | 1 4 |   |   
+  1   |     | 2 |   
+ ← 10 |     |   |   
+  2   |     |   | 3 
+  3   |  10 |   |   
+  4   | 5 8 |   |   
+  5   |     | 6 |   
+  6   |     |   | 7 
+  7   | 5 8 |   |   
+  8   |     | 9 |   
+  9   |  10 |   |   
 
 
 ===== DETERMINISATION ET COMPLEMENTARISATION =====
+Cet automate est asynchrone car il a au moins une transition epsilon (0*1).
+Cet automate n'est pas déterministe car il possède 5 états initiaux.
 Cet automate est déjà synchrone.
-Cet automate n'est pas déterministe car il possède 2 états initiaux.
-Cet automate est déjà synchrone.
-Cet automate est incomplet car il manque 2 transition(s).
+Cet automate est incomplet car il manque 10 transition(s).
 
-Alphabet :  a b
-Etats initiaux :  0,1
-Etats terminaux :  0 0,1 0,2 1,2 2
+Alphabet :  a b c
+Etats initiaux :  0,1,4,5,8
+Etats terminaux :  10,2,6,9 10,3,5,7,8 10,6,9
 Table de transition :
-   /    |  a  |  b  
---------+-----+-----
-  ← 0   |  P  | 1,2 
- ←→ 0,1 | 0,2 | 1,2 
- ← 0,2  |  0  | 1,2 
- ← 1,2  | 0,2 |  2  
-  ← 2   |  0  |  P  
-   P    |  P  |  P  
+      /       |    a     |     b      | c 
+--------------+----------+------------+---
+ → 0,1,4,5,8  | 10,2,6,9 |     P      | P 
+  ← 10,2,6,9  |    P     | 10,3,5,7,8 | P 
+ ← 10,3,5,7,8 |  10,6,9  |     P      | P 
+   ← 10,6,9   |    P     |   5,7,8    | P 
+    5,7,8     |  10,6,9  |     P      | P 
+      P       |    P     |     P      | P 
 
 
 ===== RECONNAISSANCE =====
-Entrez le mot à tester (ou suivant/s pour passer à l'étape suivante) : 
+
 
 ===== RECONNAISSANCE LANGAGE COMPLEMENTAIRE =====
 Cet automate est déjà synchrone.
@@ -42,39 +50,38 @@ Cet automate est déjà déterministe.
 Cet automate est déjà synchrone.
 Cet automate est déjà completé.
 
-Alphabet :  a b
-Etats initiaux :  0,1
-Etats terminaux :  P
+Alphabet :  a b c
+Etats initiaux :  0,1,4,5,8
+Etats terminaux :  0,1,4,5,8 5,7,8 P
 Table de transition :
-   /   |  a  |  b  
--------+-----+-----
-   0   |  P  | 1,2 
- → 0,1 | 0,2 | 1,2 
-  0,2  |  0  | 1,2 
-  1,2  | 0,2 |  2  
-   2   |  0  |  P  
-  ← P  |  P  |  P  
+      /       |    a     |     b      | c 
+--------------+----------+------------+---
+ ←→ 0,1,4,5,8 | 10,2,6,9 |     P      | P 
+   10,2,6,9   |    P     | 10,3,5,7,8 | P 
+  10,3,5,7,8  |  10,6,9  |     P      | P 
+    10,6,9    |    P     |   5,7,8    | P 
+   ← 5,7,8    |  10,6,9  |     P      | P 
+     ← P      |    P     |     P      | P 
 
 
 ===== RECONNAISSANCE =====
-Entrez le mot à tester (ou suivant/s pour passer à l'étape suivante) : 
+
 
 ===== STANDARDISATION =====
 Cet automate est déjà standard.
 
-Alphabet :  a b
-Etats initiaux :  0,1
-Etats terminaux :  P
+Alphabet :  a b c
+Etats initiaux :  0,1,4,5,8
+Etats terminaux :  0,1,4,5,8 5,7,8 P
 Table de transition :
-   /   |  a  |  b  
--------+-----+-----
-   0   |  P  | 1,2 
- → 0,1 | 0,2 | 1,2 
-  0,2  |  0  | 1,2 
-  1,2  | 0,2 |  2  
-   2   |  0  |  P  
-  ← P  |  P  |  P  
+      /       |    a     |     b      | c 
+--------------+----------+------------+---
+ ←→ 0,1,4,5,8 | 10,2,6,9 |     P      | P 
+   10,2,6,9   |    P     | 10,3,5,7,8 | P 
+  10,3,5,7,8  |  10,6,9  |     P      | P 
+    10,6,9    |    P     |   5,7,8    | P 
+   ← 5,7,8    |  10,6,9  |     P      | P 
+     ← P      |    P     |     P      | P 
 
 
 ===== RECONNAISSANCE =====
-Entrez le mot à tester (ou suivant/s pour passer à l'étape suivante) : 
