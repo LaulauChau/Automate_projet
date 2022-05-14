@@ -1,7 +1,7 @@
-from src.classes.automate import Automate
-from src.classes.etat import Etat
-from src.classes.transition import Transition
-from src.functions.synchronisation import synchronize
+from src.classes.R5_automate import Automate
+from src.classes.R5_etat import Etat
+from src.classes.R5_transition import Transition
+from src.functions.R5_synchronisation import synchronize
 
 
 def determinize(automate, file=None):

@@ -2,14 +2,14 @@ import os
 import re
 
 
-from src.classes.automate import Automate
-from src.functions.completion import completer, complement
-from src.functions.determinisation import determinize
-from src.functions.standardisation import standardize
-from src.functions.reconnaissance import reconnaissance
+from src.classes.R5_automate import Automate
+from src.functions.R5_completion import completer, complement
+from src.functions.R5_determinisation import determinize
+from src.functions.R5_standardisation import standardize
+from src.functions.R5_reconnaissance import reconnaissance
 
 
-FORMAT_FICHIER = "BN3-%d.txt"
+FORMAT_FICHIER = "R5-%d.txt"
 
 
 def main():

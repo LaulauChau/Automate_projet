@@ -1,5 +1,5 @@
-from src.classes.etat import Etat
-from src.classes.transition import Transition
+from src.classes.R5_etat import Etat
+from src.classes.R5_transition import Transition
 
 
 def standardize(automate, file=None):

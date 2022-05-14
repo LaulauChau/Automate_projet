@@ -1,9 +1,9 @@
 import re
 
-from src.classes.alphabet import Alphabet
-from src.classes.etat import Etat
-from src.classes.lettre import Lettre
-from src.classes.transition import Transition
+from src.classes.R5_alphabet import Alphabet
+from src.classes.R5_etat import Etat
+from src.classes.R5_lettre import Lettre
+from src.classes.R5_transition import Transition
 
 LETTRES = "abcdefghijklmnopqrstuvwxyz"
 ETATS = list(map(str, range(100)))

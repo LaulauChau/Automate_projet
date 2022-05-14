@@ -1,4 +1,4 @@
-from src.classes.transition import Transition
+from src.classes.R5_transition import Transition
 
 
 def getEpsilon(automate):
