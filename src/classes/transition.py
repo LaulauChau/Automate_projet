@@ -21,6 +21,6 @@ class Transition:
         return Transition(copieEtat_0, copieEtat_1, copieLettre)
 
     def remove(self):
-        self.etat_0.automate.transition.remove(self)
+        self.etat_0.automate.transitions.remove(self)
         self.etat_0.transition_0.remove(self)
         self.etat_1.transition_1.remove(self)

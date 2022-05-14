@@ -142,7 +142,7 @@ def synchronize(automate, file=None):
             etat.initial = True
             automateSynchrone.etatsInitiaux.add(etat)
 
-        if epsilonTerminal(etat)(etat):
+        if epsilonTerminal(etat):
             etat.terminal = True
             automateSynchrone.etatsTerminaux.add(etat)
 

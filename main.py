@@ -38,45 +38,35 @@ def main():
             if idAutomate not in automateAs:
                 break
 
-            print()
-            print("-1. Lecture de l'automate :")
+            print("\n\n===== LECTURE DE L'AUTOMATE =====")
             cheminFichier = "docs/" + (FORMAT_FICHIER % idAutomate)
             automate = Automate.readFile(cheminFichier)
             automate.display()
 
-            print()
-            print("-2. Déterminisation et complémentarisation de l'automate :")
+            print("\n\n===== DETERMINISATION ET COMPLEMENTARISATION =====")
             automate = determinize(automate)
             automate = completer(automate)
             automate.display()
 
             """
-            print()
-            print("-3. Minimisation de l'automate :")
+            print("\n\n===== MINIMISATION =====")
             """
 
-            print()
-            print("-4. Reconnaissance du mot :")
+            print("\n\n===== RECONNAISSANCE =====")
             reconnaissance(automate)
 
-            print()
-            print(
-                "-5. Création d'un automate qui reconnaît le langage complémentaire :"
-            )
+            print("\n\n===== RECONNAISSANCE LANGAGE COMPLEMENTAIRE =====")
             automate = complement(automate)
             automate.display()
 
-            print()
-            print("-6. Reconnaissance du mot :")
+            print("\n\n===== RECONNAISSANCE =====")
             reconnaissance(automate)
 
-            print()
-            print("-7. Standardisation de l'automate :")
+            print("\n\n===== STANDARDISATION =====")
             automate = standardize(automate)
             automate.display()
 
-            print()
-            print("-8. Reconnaissance du mot :")
+            print("\n\n===== RECONNAISSANCE =====")
             reconnaissance(automate)
     except KeyboardInterrupt:
         print()

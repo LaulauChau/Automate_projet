@@ -14,8 +14,8 @@ def standardize(automate, file=None):
         if etat == etatInitial:
             continue
 
-        etatInitial = False
-        automate.etatInitial.remove(etat)
+        etat.initial = False
+        automate.etatsInitiaux.remove(etat)
 
         association = set()
         for transition in etat.transition_0:

@@ -151,7 +151,7 @@ class Automate:
             lettre.caractere for lettre in self.alphabet.lettres if not lettre.epsilon
         ]
         lettres.sort()
-        print("Alphabet : ", *lettres, file=file)
+        print("\nAlphabet : ", *lettres, file=file)
 
         etatsInitiaux = [etat.numeroEtat for etat in self.etatsInitiaux]
         etatsInitiaux.sort()
