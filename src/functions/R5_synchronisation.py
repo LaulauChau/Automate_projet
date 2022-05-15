@@ -1,13 +1,13 @@
 from src.classes.R5_transition import Transition
 
 
-def getEpsilon(automate):
+def getEpsilon(automate: object) -> any:
     return next(
         (lettre for lettre in automate.alphabet.lettres if lettre.epsilon), None
     )
 
 
-def getEtatAsynchrone(etat, epsilon=None, parents=None):
+def getEtatAsynchrone(etat: object, epsilon: bool = None, parents: set = None) -> set:
     if parents is None:
         parents = set()
     elif etat in parents:
@@ -38,7 +38,7 @@ def getEtatAsynchrone(etat, epsilon=None, parents=None):
     return etatsAsynchrones
 
 
-def getNextEtatRec(etat, lettre, parents=None):
+def getNextEtatRec(etat: object, lettre: str, parents: set = None) -> object:
     if parents is None:
         parents = set()
     elif etat in parents:
@@ -66,7 +66,7 @@ def getNextEtatRec(etat, lettre, parents=None):
     return etatSuivant
 
 
-def epsilonInitial(etat, parents=None):
+def epsilonInitial(etat: object, parents: set = None) -> bool:
     if etat.initial:
         return True
 
@@ -93,7 +93,7 @@ def epsilonInitial(etat, parents=None):
     )
 
 
-def epsilonTerminal(etat, parents=None):
+def epsilonTerminal(etat: object, parents: set = None) -> bool:
     if etat.terminal:
         return True
 
@@ -120,7 +120,7 @@ def epsilonTerminal(etat, parents=None):
     )
 
 
-def synchronize(automate, file=None):
+def synchronize(automate: object, file=None) -> object:
     automateSynchrone = automate.copy()
 
     if not automate.checkAsynchrone(file=file):

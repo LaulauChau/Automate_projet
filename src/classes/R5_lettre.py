@@ -1,5 +1,5 @@
 class Lettre:
-    def __init__(self, alphabet, caractere=None, epsilon=None):
+    def __init__(self, alphabet: object, caractere: str = None, epsilon: bool = None):
         self.alphabet = alphabet
         self.epsilon = epsilon if epsilon is not None else (caractere == "*")
         self.caractere = (
@@ -7,7 +7,7 @@ class Lettre:
         )
         self.alphabet.lettres.add(self)
 
-    def copy(self, alphabet=None):
+    def copy(self, alphabet: object = None) -> object:
         if alphabet is None:
             alphabet = self.alphabet
 

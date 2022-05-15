@@ -24,7 +24,7 @@ class Automate:
         self.etatsInitiaux = etatsInitiaux if etatsInitiaux is not None else set()
         self.etatsTerminaux = etatsTerminaux if etatsTerminaux is not None else set()
 
-    def copy(self, alphabet=None):
+    def copy(self, alphabet: object = None) -> object:
         if alphabet is None:
             alphabet = self.alphabet
 
@@ -38,12 +38,12 @@ class Automate:
 
         return copieAutomate
 
-    def getEtat(self, numeroEtat):
+    def getEtat(self, numeroEtat) -> object:
         return next(
             (etat for etat in self.etats if etat.numeroEtat == numeroEtat), None
         )
 
-    def checkAsynchrone(self, file=None):
+    def checkAsynchrone(self, file=None) -> bool:
         for transition in sorted(
             self.transitions,
             key=lambda transition: (
@@ -61,7 +61,8 @@ class Automate:
             print("Cet automate est déjà synchrone.", file=file)
             return False
 
-    def checkDeterministe(self, file=None):
+    def checkDeterministe(self, file=None) -> bool:
+        # Doit avoir qu'un seul état initial
         if len(self.etatsInitiaux) > 1:
             print(
                 f"Cet automate n'est pas déterministe car il possède {len(self.etatsInitiaux)} états initiaux.",
@@ -79,8 +80,10 @@ class Automate:
                 transition.lettre.caractere,
             ),
         ):
+            # Créer une paire contenant l'état de départ avec sa lettre
             membre = (transition.etat_0, transition.lettre)
 
+            # Vérifie si la paire est unique
             if membre in association:
                 print(
                     f"Cet automate n'est pas déterministe car il a plusieurs transitions qui partent du même état ({transition.etat_0.numeroEtat}) avec la lettre ({transition.lettre.caractere}).",
@@ -93,10 +96,11 @@ class Automate:
         print("Cet automate est déjà déterministe.", file=file)
         return True
 
-    def checkComplet(self, file=None):
+    def checkComplet(self, file=None) -> bool:
         association = set()
 
         for transition in self.transitions:
+            # Doit être synchrone
             if transition.lettre.epsilon:
                 print(
                     "Cet automate ne peut pas être complété car il est asynchrone.",
@@ -118,7 +122,8 @@ class Automate:
             )
             return False
 
-    def checkStandard(self, file=None):
+    def checkStandard(self, file=None) -> bool:
+        # Ne doit avoir qu'un seul état initial
         if len(self.etatsInitiaux) > 1:
             print(
                 f"Cet automate n'est pas standard car il a {len(self.etatsInitiaux)} états initiaux.",
@@ -146,23 +151,27 @@ class Automate:
         print("Cet automate est déjà standard.", file=file)
         return True
 
-    def display(self, file=None):
+    def display(self, file=None) -> None:
+        # Affichage de l'alphabet sans les epsilons
         lettres = [
             lettre.caractere for lettre in self.alphabet.lettres if not lettre.epsilon
         ]
         lettres.sort()
         print("\nAlphabet : ", *lettres, file=file)
 
+        # Affichage des états initiaux
         etatsInitiaux = [etat.numeroEtat for etat in self.etatsInitiaux]
         etatsInitiaux.sort()
         print("Etats initiaux : ", *etatsInitiaux, file=file)
 
+        # Affichage des états terminaux
         etatsTerminaux = [etat.numeroEtat for etat in self.etatsTerminaux]
         etatsTerminaux.sort()
         print("Etats terminaux : ", *etatsTerminaux, file=file)
 
         print("Table de transition :", file=file)
 
+        # Garde que les lettres utilisées par l'alphabet de l'automate
         lettres = []
         for lettre in self.alphabet.lettres:
             for transition in self.transitions:
@@ -170,6 +179,7 @@ class Automate:
                     lettres.append(lettre)
                     break
 
+        # Calcul la largeur de chaque colonne
         largeurColonnes = [0] * (len(lettres) + 1)
         for i, lettre in enumerate(
             sorted(lettres, key=lambda lettre: lettre.caractere)
@@ -198,6 +208,7 @@ class Automate:
                 )
                 largeurColonnes[i + 1] = max(largeurColonnes[i + 1], largeurColonne)
 
+        # 1ere ligne du tableau
         print("/".center(largeurColonnes[0] + 2), end="", file=file)
         for i, lettre in enumerate(
             sorted(lettres, key=lambda lettre: lettre.caractere)
@@ -213,6 +224,7 @@ class Automate:
             print("+" + "-" * (largeurColonnes[i + 1] + 2), end="", file=file)
         print(file=file)
 
+        # Affiche le type de l'état (initial ou terminal ou normal)
         for etat in sorted(self.etats, key=lambda etat: etat.numeroEtat):
             enTete = etat.numeroEtat
 
@@ -241,7 +253,7 @@ class Automate:
 
     def readFile(
         file=None,
-    ):  # sourcery skip: instance-method-first-arg-name, raise-specific-error
+    ) -> object:  # sourcery skip: instance-method-first-arg-name, raise-specific-error
         with open(file) as f:
             longueurAlphabet = int(f.readline())
             compteurEtats = int(f.readline())
@@ -263,11 +275,13 @@ class Automate:
 
         automate = Automate(alphabet)
 
+        # Ajoute les états à l'automate
         for numeroEtat in ETATS[:compteurEtats]:
             initial = numeroEtat in nombreEtatsInitiaux
             terminal = numeroEtat in nombreEtatsTerminaux
             Etat(automate, numeroEtat, initial=initial, terminal=terminal)
 
+        # Lis les transitions et les ajoutents à l'automate
         for transitionDesc in transitionDescription:
             if match := re.match(r"^(\d+)(\D+)(\d+)\n?$", transitionDesc):
                 iDEtat_0 = match[1]
@@ -280,6 +294,8 @@ class Automate:
 
                 Transition(etat_0, etat_1, lettre)
             else:
-                raise Exception("Format invalide.")
+                raise Exception(
+                    "Format invalide."
+                )  # Doit être sous la forme int char int
 
         return automate

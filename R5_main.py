@@ -13,7 +13,8 @@ from src.functions.R5_reconnaissance import reconnaissance
 FORMAT_FICHIER = "R5-%d.txt"
 
 
-def trace():
+# Génére les traces de test de chaque automate
+def trace() -> None:
     for idAutomate in range(1, 45):
         with open(f"traces/R5-trace-{idAutomate}.txt", "w", encoding="utf-8") as f:
             sys.stdout = f
@@ -49,7 +50,7 @@ def trace():
             reconnaissance(automate)
 
 
-def main():
+def main() -> None:
     automateAs = set()
     for file in os.listdir("docs"):
         if match := re.match(FORMAT_FICHIER.replace(r"%d", r"(\d+)"), file):
